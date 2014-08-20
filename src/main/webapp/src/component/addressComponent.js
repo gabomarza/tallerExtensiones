@@ -36,7 +36,7 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
         postInit: function(){
             var self = this;
             this.toolbarModel.set('showPrint', false);
-            this.toolbarModel.set('showSearch', false);
+            this.toolbarModel.set('showSearch', true);
         }
     });
     return App.Component.AddressComponent;
