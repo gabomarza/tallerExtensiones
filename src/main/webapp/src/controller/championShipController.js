@@ -31,8 +31,32 @@ define(['controller/_championShipController','delegate/championShipDelegate'], f
     App.Controller.ChampionShipController = App.Controller._ChampionShipController.extend({
 
     language: function(){
-            alert('Usted está viendo la versión en ESPAÑOL de esta página');
+        alert('Usted está viendo la versión en ESPAÑOL de esta página');
+        },
+    
+    cost: function(params){
+        var empieza = params.startDate;
+        var termina = params.endDate;
+        var diaI = parseInt(empieza.substring(0,2));
+        var diaF = parseInt(termina.substring(0,2));
+        var mesI = parseInt(empieza.substring(3,5));
+        var mesF = parseInt(termina.substring(3,5));
+        var anI = parseInt(empieza.substring(6,8));
+        var anF = parseInt(termina.substring(6,8));
+        if( diaF < diaI && mesI < mesF )
+        {
+            diaF = diaF + 30;
         }
+        var dias = diaF - diaI;
+        var mes = (mesF - mesI)*30;
+        var an = (anF-anI)*365;
+        var total = dias + mes + an;
+        var costo = Math.E ^(0.5*total);
+        alert('La duracion del campeonato es de ' + total + ' dias y el costo aproximado es ' + costo);
+        
+    }
     });
+    
+    
     return App.Controller.ChampionShipController;
 }); 

@@ -37,6 +37,9 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             var self = this;
             this.toolbarModel.set('showPrint', false);
             this.toolbarModel.set('showSearch', false);
+            Backbone.on(self.componentId + '-sport-show-average', function(params) {
+                self.componentController.average(params);
+            });
         }
     });
     return App.Component.SportComponent;
